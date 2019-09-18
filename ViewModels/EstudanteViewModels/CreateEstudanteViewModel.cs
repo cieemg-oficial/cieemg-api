@@ -5,7 +5,7 @@ using Flunt.Validations;
 
 namespace apiCiee.ViewModels.EstudanteViewModels
 {
-    public class EditorEstudanteViewModel : Notifiable, IValidatable {
+    public class CreateEstudanteViewModel : Notifiable, IValidatable {
         public int? id { get; set; }
         public string nome { get; set; }
         public string cpf { get; set; }
@@ -17,8 +17,7 @@ namespace apiCiee.ViewModels.EstudanteViewModels
         public string email { get; set; }
         public string cidade { get; set; }
         public string bairro { get; set; }
-        
-        //public string senha { get; set; }
+        public string senha { get; set; }
         public string nomepai { get; set; }
         public string nomemae { get; set; }
         public string estadocivil { get; set; }
@@ -60,6 +59,8 @@ namespace apiCiee.ViewModels.EstudanteViewModels
                 new Contract()
                 .HasMaxLen(nome, 255, "nome", "O nome deve conter no máximo 255 caracteres")
                 .HasMinLen(nome, 3, "nome", "O nome deve conter no minimo 3 catacteres")
+                .HasMinLen(senha, 8, "senha", "A senha deve conter no minimo 8 caracteres")
+
             );
         }
     }

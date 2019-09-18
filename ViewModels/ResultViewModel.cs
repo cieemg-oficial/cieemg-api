@@ -1,6 +1,6 @@
 using System;
 
-namespace apiCiee.ViewModels.EstudanteViewModels
+namespace apiCiee.ViewModels
 {
     public class ResultViewModel {
         public bool Success { get; set; }

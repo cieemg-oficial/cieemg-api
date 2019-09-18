@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using apiCiee.Data;
 using apiCiee.Models;
+using apiCiee.ViewModels;
 using apiCiee.ViewModels.EstudanteViewModels;
 
 namespace apiCiee.Controllers
@@ -37,7 +38,7 @@ namespace apiCiee.Controllers
         [Route("api/estudantes")]
         [HttpPost]
 
-        public ResultViewModel Post([FromBody]EditorEstudanteViewModel model) {
+        public ResultViewModel Post([FromBody]CreateEstudanteViewModel model) {
             model.Validate();
             if(model.Invalid)
                 return new ResultViewModel {
@@ -48,13 +49,51 @@ namespace apiCiee.Controllers
             
             var estudante = new Estudante();
             estudante.nome = model.nome;
-            estudante.curso_id = model.curso_id;
-            estudante.dt_cadastro = model.dt_cadastro;
-            estudante.escola_id = model.escola_id;
-            estudante.estagiario_ativo = model.estagiario_ativo;
+            estudante.cpf = model.cpf;
+            estudante.logradouro = model.logradouro;
+            estudante.numero = model.numero;
+            estudante.complemento = model.complemento;
+            estudante.cep = model.cep;
+            estudante.telefone = model.telefone;
+            estudante.email = model.email;
+            estudante.cidade = model.cidade;
+            estudante.bairro = model.bairro;
+            estudante.senha = model.senha;
+            estudante.nomepai = model.nomepai;
+            estudante.nomemae = model.nomemae;
+            estudante.estadocivil = model.estadocivil;
+            estudante.sexo = model.sexo;
+            estudante.dt_nascimento = model.dt_nascimento;
+            estudante.horario = model.horario;
+            estudante.rg = model.rg;
+            estudante.orgaoexpedidor = model.orgaoexpedidor;
             estudante.periodoano = model.periodoano;
             estudante.previsaoformatura = model.previsaoformatura;
-            
+            estudante.curso_id = model.curso_id;
+            estudante.escola_id = model.escola_id;
+            estudante.dt_cadastro = model.dt_cadastro;
+            estudante.uf = model.uf;
+            estudante.idade = model.idade;
+            estudante.estagiario_ativo = model.estagiario_ativo;
+            estudante.dt_atualizacao = model.dt_atualizacao;
+            estudante.periodo = model.periodo;
+            estudante.ano = model.ano;
+            estudante.previsao_semestre = model.previsao_semestre;
+            estudante.previsao_ano = model.previsao_ano;
+            estudante.previsao_mes = model.previsao_mes;
+            estudante.deficiencia = model.deficiencia;
+            estudante.deficiencia_descricao = model.deficiencia_descricao;
+            estudante.telefone1 = model.telefone1;
+            estudante.telefone2 = model.telefone2;
+            estudante.ctps = model.ctps;
+            estudante.candidato_selecionado = model.candidato_selecionado;
+            estudante.anoingresso = model.anoingresso;
+            estudante.semestreingresso = model.semestreingresso;
+            estudante.cpf_pai = model.cpf_pai;
+            estudante.cpf_mae = model.cpf_mae;
+            estudante.notificacao = model.notificacao;
+            estudante.dt_alteracao_notificacao = model.dt_alteracao_notificacao;
+
 
             _context.Estudante.Add(estudante);
             _context.SaveChanges();
