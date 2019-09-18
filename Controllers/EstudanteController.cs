@@ -86,13 +86,13 @@ namespace apiCiee.Controllers
             estudante.telefone1 = model.telefone1;
             estudante.telefone2 = model.telefone2;
             estudante.ctps = model.ctps;
-            estudante.candidato_selecionado = model.candidato_selecionado;
-            estudante.anoingresso = model.anoingresso;
-            estudante.semestreingresso = model.semestreingresso;
-            estudante.cpf_pai = model.cpf_pai;
-            estudante.cpf_mae = model.cpf_mae;
-            estudante.notificacao = model.notificacao;
-            estudante.dt_alteracao_notificacao = model.dt_alteracao_notificacao;
+            // estudante.candidato_selecionado = model.candidato_selecionado;
+            // estudante.anoingresso = model.anoingresso;
+            // estudante.semestreingresso = model.semestreingresso;
+            // estudante.cpf_pai = model.cpf_pai;
+            // estudante.cpf_mae = model.cpf_mae;
+            // estudante.notificacao = model.notificacao;
+            // estudante.dt_alteracao_notificacao = model.dt_alteracao_notificacao;
 
 
             _context.Estudante.Add(estudante);

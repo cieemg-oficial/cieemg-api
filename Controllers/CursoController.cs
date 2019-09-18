@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using apiCiee.Data;
 using apiCiee.Models;
+using apiCiee.ViewModels.CursoViewModels;
 
 namespace apiCiee.Controllers
 {
@@ -26,8 +27,15 @@ namespace apiCiee.Controllers
 
         [Route("api/cursos/escola/{idescola}")]
         [HttpGet]
-        public IEnumerable<Curso> GetCursosEscola(int idescola){
-            return _context.Curso.AsNoTracking().Where(x => x.idescola == idescola).ToList();
+        public IEnumerable<ListCursoViewModel> GetCursosEscola(int idescola){
+            return _context.Curso.Select(
+                x => new ListCursoViewModel {
+                    idescola = x.idescola,
+                    idcurso = x.idcurso,
+                    descricao = x.descricao,
+                    duracao = x.duracao
+                }
+            ).AsNoTracking().Where(x => x.idescola == idescola).ToList();
         }
     }
 }

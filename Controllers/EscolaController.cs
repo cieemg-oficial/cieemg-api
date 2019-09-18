@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using apiCiee.Data;
 using apiCiee.Models;
+using apiCiee.ViewModels.EscolaViewModels;
 
 namespace apiCiee.Controllers 
 {
@@ -14,8 +15,11 @@ namespace apiCiee.Controllers
 
         [Route("api/escolas")]
         [HttpGet]
-        public IEnumerable<Escola> GetEscolas(){
-            return _context.Escolas.AsNoTracking().ToList();
+        public IEnumerable<ListEscolaViewModel> GetEscolas(){
+            return _context.Escolas.Select(x => new ListEscolaViewModel {
+                id = x.id,
+                razaosocial = x.razaosocial
+            }).AsNoTracking().ToList();
         }
 
         [Route("api/escolas/{id}")]

@@ -54,10 +54,9 @@ namespace apiCiee.ViewModels.EstudanteViewModels
         public DateTime? dt_alteracao_notificacao { get; set; }
 
         public void Validate() {
-
             AddNotifications(
                 new Contract()
-                .HasMaxLen(nome, 255, "nome", "O nome deve conter no máximo 255 caracteres")
+                .HasMaxLen(nome, 255, "nome", "O nome deve conter no máximo 120 caracteres")
                 .HasMinLen(nome, 3, "nome", "O nome deve conter no minimo 3 catacteres")
                 .HasMinLen(senha, 8, "senha", "A senha deve conter no minimo 8 caracteres")
 
